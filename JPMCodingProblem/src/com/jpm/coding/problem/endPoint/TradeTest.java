@@ -8,14 +8,14 @@ import java.util.List;
 import com.jpm.coding.problem.model.TradeInstruction;
 import com.jpm.coding.problem.model.TradeType;
 import com.jpm.coding.problem.services.FileInstructionReader;
-import com.jpm.coding.problem.services.ReportingService;
-import com.jpm.coding.problem.services.ReportingServiceImpl;
+import com.jpm.coding.problem.services.ReportManager;
+import com.jpm.coding.problem.services.ReportManagerImpl;
 import com.jpm.coding.problem.services.TradeInstructionReader;
 
 public class TradeTest {
     public static void main(String[] args) {
 	TradeInstructionReader instructionReader = new FileInstructionReader();
-	ReportingService reportingService = new ReportingServiceImpl();
+	ReportManager reportingService = new ReportManagerImpl();
 	String source = "";
 	TradeType tradeType = TradeType.BUY;
 	LocalDate date = LocalDate.now();

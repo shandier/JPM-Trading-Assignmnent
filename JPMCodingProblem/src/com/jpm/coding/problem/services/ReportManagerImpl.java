@@ -7,9 +7,9 @@ import com.jpm.coding.problem.helper.InstructionUtil;
 import com.jpm.coding.problem.model.TradeInstruction;
 import com.jpm.coding.problem.model.TradeType;
 
-public class ReportingServiceImpl implements ReportingService {
+public class ReportManagerImpl implements ReportManager {
 
-    private InstructionManagerService instructionManager = new InstructionManagerServiceImpl();
+    private InstructionManager instructionManager = new InstructionManagerImpl();
 
     @Override
     public double generateTradeReport(List<TradeInstruction> instructions, TradeType tradeType,

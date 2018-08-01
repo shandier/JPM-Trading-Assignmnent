@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.jpm.coding.problem.model.TradeInstruction;
 
-public interface InstructionManagerService {
+public interface InstructionManager {
     
 	/** Method to make modification in the instructions as per trade rules.
 	 * @param tradeInstructions: list of TradeInstructions received.

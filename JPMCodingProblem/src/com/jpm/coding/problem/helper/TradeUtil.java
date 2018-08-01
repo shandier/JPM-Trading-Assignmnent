@@ -15,9 +15,19 @@ public class TradeUtil {
 	}
 	return false;
     }
+
     public static LocalDate getWorkingSettlementDate(Currency currency, LocalDate localDate) {
-	if (isWeekend(currency, localDate.getDayOfWeek())) {
-	    getWorkingSettlementDate(currency, localDate.plusDays(1));
+	if (currency == null || localDate == null) {
+	    System.out.println("Invalid arguments");
+	    localDate = LocalDate.now();
+	}
+	try {
+	    if (isWeekend(currency, localDate.getDayOfWeek())) {
+		localDate = getWorkingSettlementDate(currency, localDate.plusDays(1));
+	    }
+	} catch (IllegalArgumentException e) {
+	    System.out.println("Invalid arguments");
+	    localDate = LocalDate.now();
 	}
 	return localDate;
     }

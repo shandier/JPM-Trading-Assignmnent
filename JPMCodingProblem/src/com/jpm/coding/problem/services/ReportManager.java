@@ -6,7 +6,7 @@ import java.util.List;
 import com.jpm.coding.problem.model.TradeInstruction;
 import com.jpm.coding.problem.model.TradeType;
 
-public interface ReportingService {
+public interface ReportManager {
     
 /** Method to generate report for total number of outgoing and incoming instructions on perticular date.
  * @param instructions : instructions for trade

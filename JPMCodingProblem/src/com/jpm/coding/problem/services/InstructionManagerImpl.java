@@ -2,10 +2,11 @@ package com.jpm.coding.problem.services;
 
 import java.util.List;
 
+import com.jpm.coding.problem.helper.InstructionUtil;
 import com.jpm.coding.problem.helper.TradeUtil;
 import com.jpm.coding.problem.model.TradeInstruction;
 
-public class InstructionManagerServiceImpl implements InstructionManagerService {
+public class InstructionManagerImpl implements InstructionManager {
 
     @Override
     public List<TradeInstruction> settleInstructions(List<TradeInstruction> tradeInstructions) {
@@ -16,15 +17,10 @@ public class InstructionManagerServiceImpl implements InstructionManagerService 
 		if (instruction != null) {
 		    instruction.setSettlementDate(TradeUtil.getWorkingSettlementDate(instruction.getCurrency(),
 			    instruction.getSettlementDate()));
-		    calculateInstructionUSD(instruction);
+		    InstructionUtil.calculateInstructionUSD(instruction);
 		}
 	    });
 	}
 	return tradeInstructions;
-    }
-
-    private void calculateInstructionUSD(TradeInstruction instruction) {
-	double totalUSD = instruction.getAgreedFX() * instruction.getPricePerUnit() * instruction.getTradeUnits();
-	instruction.setUSD(totalUSD);
     }
 }
